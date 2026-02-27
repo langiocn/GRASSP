@@ -1,5 +1,3 @@
-import sys
-sys.path.append(r"D:\\LAN_TL\\Project\\Binding_sites\\GITCODE\\RNABindingLan\\")
 import torch
 import numpy as np
 from torch_geometric.loader import DataLoader
