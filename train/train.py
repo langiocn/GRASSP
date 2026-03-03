@@ -205,7 +205,7 @@ if __name__ == "__main__":
     print(full_dataset[0].x.shape[1])
     print(full_dataset[0].ss_emb.shape[1])
 
-    model = HybridRNABindingSiteModel(rna_dim=full_dataset[0].x.shape[1], ss_dim = full_dataset[0].ss_emb.shape[1], hidden=128, dropout=0.6)
+    model = HybridRNABindingSiteModel(rna_dim=full_dataset[0].x.shape[1], ss_dim = full_dataset[0].ss_emb.shape[1], hidden=86, dropout=0.6)
     # model = HybridRNABindingSiteModel()
 
     # 3) Train
