@@ -107,10 +107,10 @@ if __name__ == "__main__":
     test_loader = DataLoader(test_dataset, batch_size=10, shuffle=False)
     
     
-    model = HybridRNABindingSiteModel(rna_dim=test_dataset[0].x.shape[1], ss_dim = test_dataset[0].ss_emb.shape[1], hidden=86, dropout=0.3)
+    model = HybridRNABindingSiteModel(rna_dim=test_dataset[0].x.shape[1], ss_dim = test_dataset[0].ss_emb.shape[1], hidden=128, dropout=0.3)
     
     # Load checkpoint
-    ckpt = torch.load('checkpoints/COBRA_best_model.pt', map_location=device)
+    ckpt = torch.load('checkpoints/COBRA_SEED1.pt', map_location=device)
     model.load_state_dict(ckpt["model_state_dict"])
     model = model.to(device)
     model.eval()

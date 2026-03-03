@@ -120,7 +120,7 @@ if __name__ == "__main__":
     model = HybridRNABindingSiteModel(rna_dim=test_dataset[0].x.shape[1], ss_dim = test_dataset[0].ss_emb.shape[1],hidden=128, dropout=0.6)
     
     # Load checkpoint
-    ckpt = torch.load('checkpoints/SET4_best_model.pt', map_location=device)
+    ckpt = torch.load('checkpoints/HARI_SET4_SEED111.pt', map_location=device)
     model.load_state_dict(ckpt["model_state_dict"])
     model = model.to(device)
     model.eval()
