@@ -100,16 +100,12 @@ if __name__ == "__main__":
         root='data/processed/HARI_FINAL'
     )
     for data in full_dataset:
-        pdb_name = getattr(data, "pdb_name", None)  # đổi nếu bạn đặt tên khác
+        pdb_name = getattr(data, "pdb_name", None)  
         if pdb_name is None:
             raise ValueError("Một sample trong full_dataset không có thuộc tính 'pdb_name'")
-
-        # Nếu id nằm trong list nào thì cho vào dataset đó
         if pdb_name in test_ids:
             test_dataset.append(data)
 
-
-    # 4) In thông tin
     print(f"Test dataset size: {len(test_dataset)}")
 
 
@@ -118,15 +114,14 @@ if __name__ == "__main__":
     
     
     model = HybridRNABindingSiteModel(rna_dim=test_dataset[0].x.shape[1], ss_dim = test_dataset[0].ss_emb.shape[1],hidden=128, dropout=0.6)
-    
-    # Load checkpoint
+
     ckpt = torch.load('checkpoints/HARI_SET4_SEED111.pt', map_location=device)
     model.load_state_dict(ckpt["model_state_dict"])
     model = model.to(device)
     model.eval()
     
     saved_th = ckpt.get("threshold", 0.5)
-    print(f"✓ Loaded model checkpoint")
+    print(f"Loaded model checkpoint")
     print(f"  Threshold: {saved_th:.4f}")
     
     # ========== 4. Evaluate ==========

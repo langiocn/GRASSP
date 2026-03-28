@@ -94,8 +94,6 @@ if __name__ == "__main__":
         # số nucleotide = số node
         N = data.x.shape[0]
         num_nucleotides += N
-
-        # nhãn
         y = data.y.view(-1)
         pos_labels += int((y == 1).sum())
         neg_labels += int((y == 0).sum())
@@ -116,7 +114,7 @@ if __name__ == "__main__":
     model.eval()
     
     saved_th = ckpt.get("threshold", 0.5)
-    print(f"✓ Loaded model checkpoint")
+    print(f"Loaded model checkpoint")
     print(f"  Threshold: {saved_th:.4f}")
     
     # ========== 4. Evaluate ==========

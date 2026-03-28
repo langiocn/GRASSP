@@ -21,10 +21,10 @@ def download_pdb_all_chains(pdb_id, out_dir):
     try:
         response = requests.get(pdb_url)
         if response.status_code == 404:
-            print(f"⚠️ PDB {pdb_id} not found (404).")
+            print(f"PDB {pdb_id} not found (404).")
             return None
     except requests.RequestException as e:
-        print(f"⚠️ Error downloading {pdb_id}: {e}")
+        print(f"Error downloading {pdb_id}: {e}")
         return None
 
     pdb_content = response.text
@@ -36,7 +36,7 @@ def download_pdb_all_chains(pdb_id, out_dir):
     io.set_structure(structure)
 
     pdb_output = os.path.join(out_dir, f"{pdb_id}.pdb")
-    io.save(pdb_output)   # ⬅️ không select → giữ tất cả chain
+    io.save(pdb_output)  
 
     print(f"Saved ALL chains of {pdb_id} to {pdb_output}")
     return pdb_output
