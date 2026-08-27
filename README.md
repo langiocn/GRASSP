@@ -13,7 +13,7 @@ Each dataset has a corresponding test script in the `test/` directory.
 ```bash
 python test/testTE18.py      # TE18 dataset
 ````
-## Citation
+## 3. Citation
 
 If you find this work useful in your research, please cite our paper as follows:
 ```bibtex
